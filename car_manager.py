@@ -29,6 +29,11 @@ class CarManager():
         for car in self.all_cars:
             car.backward(0)
 
+    def move_increment(self):
+        global STARTING_MOVE_DISTANCE , MOVE_INCREMENT
+        STARTING_MOVE_DISTANCE += MOVE_INCREMENT
+
+
 
 
 

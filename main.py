@@ -11,6 +11,7 @@ count = 0
 
 turtle_player = Player()
 car_manager = CarManager()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(turtle_player.move,"Up")
@@ -26,7 +27,16 @@ while game_is_on:
 
     for car in car_manager.all_cars:
         if car.distance(turtle_player) < 20:
+            scoreboard.end_game()
             game_is_on = False
+
+
+    if turtle_player.ycor() > 280:
+        turtle_player.goto(0, -280)
+        car_manager.move_increment()
+        scoreboard.point()
+
+
 
 
 screen.exitonclick()
